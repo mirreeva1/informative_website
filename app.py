@@ -3,13 +3,11 @@ from pathlib import Path
 import pandas as pd
 from loguru import logger
 from dash_app import serve_dash_app
-
+from src.load_sql import load_database
 app = Flask(__name__)
 
 # Load the dataset
-data_folder = Path(app.root_path) / "data"
-dataset_path = Path(app.root_path) / 'data/raw/your_dataset.csv'
-df = pd.read_csv(dataset_path, sep=';')
+df = load_database()
 logger.info(f"Column names: {df.columns}")
 
 # Serve the Dash app
