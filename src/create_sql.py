@@ -11,8 +11,8 @@ from sqlalchemy import (
     String,
     Table,
     create_engine,
-    select,
     func,
+    select,
     text,
 )
 
@@ -57,7 +57,9 @@ def main():
     # Insert data into the database
     with engine.connect() as connection:
         expected = len(df)
-        logger.info(f"Found {expected} rows in the dataset. Inserting into the database.")
+        logger.info(
+            f"Found {expected} rows in the dataset. Inserting into the database."
+        )
         for index, row in df.iterrows():
             ins = table.insert().values(**row.to_dict())
             connection.execute(ins)
@@ -70,5 +72,6 @@ def main():
         if row_count == expected:
             logger.success("All rows have been inserted successfully.")
         else:
-            logger.warning(f"Expected {expected} rows but found {row_count} rows in the table.")
-
+            logger.warning(
+                f"Expected {expected} rows but found {row_count} rows in the table."
+            )
