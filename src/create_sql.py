@@ -65,7 +65,7 @@ def main():
             connection.execute(ins)
         connection.commit()
 
-        # Check the number of rows in the table using raw SQL
+    # Check the number of rows in the table using raw SQL
     with engine.connect() as conn:
         result = conn.execute(text("SELECT COUNT(*) FROM countries"))
         row_count = result.scalar()
