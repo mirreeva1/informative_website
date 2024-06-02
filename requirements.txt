@@ -7,4 +7,3 @@ loguru
 tqdm
 seaborn
 dash
-dash_app
