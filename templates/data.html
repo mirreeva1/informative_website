@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Data Page - Freedom Website{% endblock %}
+
+{% block content %}
+<h1>Countries and Territories</h1>
+<a href="{{ url_for('download_file') }}">
+    <button>Download Excel Data</button>
+</a>
+{% endblock %}
