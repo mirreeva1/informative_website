@@ -1,9 +1,9 @@
 [project]
 name = "informative-website"
 version = "0.1.0"
-description = "Add your description here"
+description = "An informative website"
 authors = [
-    { name = "Raoul Grouls", email = "Raoul.Grouls@han.nl" }
+    { name = "Mirre Grouls", email = "mirre.grouls@student.uva.nl" }
 ]
 dependencies = [
     "flask>=3.0.3",
