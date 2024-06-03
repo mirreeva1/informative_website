@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pandas as pd
-from flask import Flask, jsonify, redirect, render_template, url_for
+from flask import Flask, redirect, render_template, url_for
 from loguru import logger
 
 from dash_app import create_dash_app
@@ -36,29 +36,7 @@ def show_barchart():
     return render_template("barchart.html", countries=countries, ratings=ratings)
 
 
-@app.route("/barchart_data")
-def barchart_data():
-    filtered_df = df[df["Total"].notnull()]
-    data = {
-        "labels": filtered_df["Country"].tolist(),
-        "datasets": [
-            {
-                "label": "Freedom Rating",
-                "data": filtered_df["Total"].tolist(),
-                "backgroundColor": "rgba(54, 162, 235, 0.2)",
-                "borderColor": "rgba(54, 162, 235, 1)",
-                "borderWidth": 1,
-            }
-        ],
-    }
-    return jsonify(data)
 
-
-@app.route("/home")
-def index():
-    top_countries = df.sort_values(by="Total", ascending=False).head(10)
-    logger.info(f"top: {top_countries}")
-    return render_template("index.html", top_countries=top_countries)
 
 
 @app.route("/data")
