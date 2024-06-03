@@ -3,6 +3,11 @@ from pathlib import Path
 import pandas as pd
 from loguru import logger
 
+import sys
+logger.info(f"sys.path: {sys.path}")
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+logger.info(f"sys.path: {sys.path}")
+
 from src.cleanup import clean_data
 from src.create_sql import main as create_sql
 
