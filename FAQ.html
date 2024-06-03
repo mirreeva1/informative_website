@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Freedom Website{% endblock %}
+
+{% block content %}
+<div class="faq-header">
+  <h2>Frequently Asked Questions (FAQ)</h2>
+</div>
+
+<div class="faq-intro">
+  <p>Read about the most frequently asked questions about democracy and freedom.</p>
+</div>
+
+<div class="faq">
+  <div class="question-wrapper">
+    <div class="question">
+      <h3>1. What is the definition of freedom, and how does it vary across different countries and cultures?</h3>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <p class="answer">Freedom can be defined as the power or right to act, speak, or think without restraint. However, the concept of freedom varies across different countries and cultures based on factors such as political systems, social norms, and religious beliefs. In some societies, freedom may be primarily focused on individual rights, while in others, it may be more closely tied to collective well-being or adherence to certain values.</p>
+  </div>
+
+  <div class="question-wrapper">
+    <div class="question">
+      <h3>2. How is the freedom score measured?</h3>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <p class="answer"> A country or territory is awarded 0 to 4 points for each of 10 political rights indicators and 15 civil liberties indicators, which take the form of questions; a score of 0 represents the smallest degree of freedom and 4 the greatest degree of freedom. The political rights questions are grouped into three subcategories: Electoral Process (3 questions), Political Pluralism and Participation (4), and Functioning of Government (3). The civil liberties questions are grouped into four subcategories: Freedom of Expression and Belief (4 questions), Associational and Organizational Rights (3), Rule of Law (4), and Personal Autonomy and Individual Rights (4). The political rights section also contains an additional discretionary question addressing forced demographic change. For the discretionary question, a score of 1 to 4 may be subtracted, as applicable (the worse the situation, the more points may be subtracted). The highest overall score that can be awarded for political rights is 40 (or a score of 4 for each of the 10 questions). The highest overall score that can be awarded for civil liberties is 60 (or a score of 4 for each of the 15 questions).</p>
+  </div>
+
+  <div class="question-wrapper">
+    <div class="question">
+      <h3>3. What are some of the main threats to freedom in the world today?</h3>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <p class="answer">There are several threats to freedom in the world, including authoritarianism, censorship, discrimination, and economic inequality. In some countries, governments may restrict freedom of speech, assembly, or religion in order to maintain power or suppress dissent. Other threats to freedom include the spread of misinformation, the influence of special interest groups, and the erosion of privacy rights in the digital age.</p>
+  </div>
+
+  <div class="question-wrapper">
+    <div class="question">
+      <h3>4. How can individuals and organizations work to promote freedom in their own communities and around the world?</h3>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <p class="answer">There are many ways to promote freedom, such as advocating for human rights, supporting free and fair elections, and promoting access to education and information. Individuals can get involved by voting, volunteering for advocacy groups, or raising awareness about issues related to freedom. Organizations can work to monitor government policies, provide resources for activists and journalists, and support programs that promote democracy and human rights.</p>
+  </div>
+
+  <div class="question-wrapper">
+    <div class="question">
+      <h3>5. What role does education play in promoting freedom and empowering individuals?</h3>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <p class="answer">Education is a key factor in promoting freedom and empowering individuals to exercise their rights and participate in society. By providing people with knowledge and skills, education can help them make informed decisions, think critically about issues affecting their lives, and advocate for change. Education can also promote values such as tolerance, respect for diversity, and civic engagement, which are essential for building free and democratic societies. Ensuring access to quality education for all individuals, regardless of their background or circumstances, is crucial for promoting freedom and social progress.</p>
+  </div>
+
+  <div class="contact-section">
+    <h3>Another question?</h3>
+    <p>For any additional inquiries or questions, please contact <a href="mailto:mirre.grouls@student.uva.nl">mirre.grouls@student.uva.nl</a></p>
+  </div>
+</div>
+
+<style>
+  .faq-header {
+    background-image: url('democracy.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .faq-intro {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .faq-intro p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .faq-header h2 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .question-wrapper {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .answer {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  .contact-section {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+  }
+
+  .contact-section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .contact-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .contact-section a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .contact-section a:hover {
+    text-decoration: underline;
+  }
+
+</style>
+
+<script>
+  document.querySelectorAll('.question').forEach(question => {
+    const answer = question.nextElementSibling;
+    const arrow = question.querySelector('.arrow');
+
+    question.addEventListener('click', () => {
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      arrow.textContent = answer.style.display === 'block' ? '▲' : '▼';
+    });
+  });
+</script>
+{% endblock %}
