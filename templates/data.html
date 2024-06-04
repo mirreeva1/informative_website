@@ -3,8 +3,26 @@
 {% block title %}Data Page - Freedom Website{% endblock %}
 
 {% block content %}
-<h1>Countries and Territories</h1>
-<a href="{{ url_for('download_file') }}">
-    <button>Download Excel Data</button>
-</a>
+<div class="content-wrapper">
+    <h1 class="heading">Countries and Territories Data</h1>
+    <div class="button-wrapper">
+        <a href="{{ url_for('data_page') }}" class="btn">
+            Download Excel Data Freedom Scores
+        </a>
+
+        <a href="https://freedomhouse.org/sites/default/files/2024-02/List_of_Electoral_Democracies_FIW24.xlsx" target="_blank" class="btn">
+            Download List of Electoral Democracies
+        </a>
+    </div>
+</div>
+<hr class="divider">
+<div class="extra-text">
+  <h2>About the Report</h2>
+  <p>Since 1973, Freedom House has assessed the condition of political rights and civil liberties around the world. It is used on a regular basis by policymakers, journalists, academics, activists, and many others.</p>
+  
+  <h3>The Data</h3>
+  <p>The Freedom in the World report is composed of numerical ratings and supporting descriptive texts for 195 countries and 15 territories. External analysts assess 210 countries and territories, using a combination of on-the-ground research, consultations with local contacts, and information from news articles, nongovernmental organizations, governments, and a variety of other sources. Expert advisers and regional specialists then vet the analysts’ conclusions. The final product represents the consensus of the analysts, advisers, and Freedom House staff.</p>
+  
+  <p>For each country and territory, Freedom in the World analyzes the electoral process, political pluralism and participation, the functioning of the government, freedom of expression and of belief, associational and organizational rights, the rule of law, and personal autonomy and individual rights.</p>
+</div>
 {% endblock %}

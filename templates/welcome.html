@@ -1,73 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freedom Website</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 50px 0;
-    color: #fff;
-    text-align: center;
-    z-index: 1000;
-    padding-bottom: 15px;
-  }
-  .navbar-logo {
-    float: left;
-    margin-left: 20px;
-  }
-  .navbar-links {
-    float: right;
-    margin-right: 20px;
-  }
-  .navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-  }
-  .content {
-    margin-top: 70px; /* Adjust based on navbar height */
-    padding: 20px;
-    padding-top: 15px;
-  }
-  .chart {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-</style>
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="navbar">
-  <div class="navbar-logo">
-    <img src="templates/bird.png" alt="Logo" height="50">
-  </div>
-  <div class="navbar-links">
-    <a href="#freedom-chart">Freedom Charts</a>
-    <a href="#faqs">FAQs</a>
-    <a href="{{ url_for('data_page') }}">Data Page</a>
-  </div>
-</div>
+{% block title %}Welcome - Freedom Website{% endblock %}
 
-<div class="content">
-  <h1 id="freedom-chart">Democracy and Freedom Around the World</h1>
-  <p>Here's the state of freedom worldwide:</p>
-  <div class="chart">
+{% block content %}
+<h1 id="freedom-chart">Welcome and get Ready to Explore the Democracy and Freedom Around the World</h1>
+<p>Here's the state of freedom worldwide:</p>
+<div class="chart">
     <a href="https://www.statista.com/chart/12541/the-state-of-freedom-worldwide/" title="Infographic: The State of Freedom in the World | Statista">
-      <img src="https://cdn.statcdn.com/Infographic/images/normal/12541.jpeg" alt="Infographic: The State of Freedom in the World | Statista" style="width: 100%; height: auto !important; max-width: 960px; -ms-interpolation-mode: bicubic;">
+        <img src="https://cdn.statcdn.com/Infographic/images/normal/12541.jpeg" alt="Infographic: The State of Freedom in the World | Statista" style="width: 100%; height: auto; max-width: 960px; -ms-interpolation-mode: bicubic;">
     </a>
-  </div>
-  <p>You will find more infographics at <a href="https://www.statista.com/chartoftheday/">Statista</a>.</p>
 </div>
 
-</body>
-</html>
+<div class="top-countries">
+    <h2>Top 10 Freest Countries</h2>
+    <ul class="country-list">
+        <li>Finland: 100</li>
+        <li>New Zealand: 99</li>
+        <li>Sweden: 99</li>
+        <li>Norway: 98</li>
+        <li>Luxembourg: 97</li>
+        <li>Ireland: 97</li>
+        <li>Denmark: 97</li>
+        <li>Canada: 97</li>
+        <li>San Marino: 97</li>
+        <li>Netherlands: 97</li>
+    </ul>
+</div>
+
+<hr class="divider">
+
+<div class="explore-section">
+    <h2>Explore How Free Countries Were in the Past 10 Years</h2>
+    <p>Find out right here!</p>
+    <a href="{{ url_for('render_dash') }}" class="btn">Explore Freedom Trends</a>
+</div>
+
+<hr class="divider">
+
+<div class="explore-section">
+  <h2>Explore More Data Visualizations on Freedom</h2>
+  <p>Do you want to learn more about the freedom of elections, and how human rights and child mortality correlate with an electoral democracy?</p>
+  <a href="{{ url_for('charts_page') }}" class="btn">Explore More Data</a>
+</div>
+
+<hr class="divider">
+
+<div class="bottom-image-container">
+  <img src="{{ url_for('static', filename='vote.png') }}" alt="Vote Image" class="bottom-image">
+  <div class="overlay-text">
+      <h2>Your Vote Matters!</h2>
+      <p>Make your voice heard on june 6th-9th in the upcoming European elections. Every vote counts in shaping our future.</p>
+      <a href="https://elections.europa.eu/" class="btn">Learn More About the Elections</a>
+  </div>
+</div>
+{% endblock %}

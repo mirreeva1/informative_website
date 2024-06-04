@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Freedom Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='bird.png') }}" alt="Logo" height="50">
+        </div>
+        <div class="navbar-links">
+            <a href="{{ url_for('welcome') }}">Home</a>
+            <a href="{{ url_for('faq_page') }}">FAQs</a>
+            <a href="{{ url_for('data_page') }}">Download Data</a>
+            <a href="{{ url_for('charts_page') }}">Data Visualised</a>
+            <a href="{{ url_for('render_dash') }}">Freedom Trends</a>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
