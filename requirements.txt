@@ -1,10 +1,6 @@
 flask
 pandas
 numpy
-folium
-geopy
 loguru
-tqdm
-seaborn
 dash
 sqlalchemy
