@@ -12,7 +12,7 @@ app = Flask(__name__)
 # Load the dataset
 df = load_database()
 logger.info(f"Column names: {df.columns}")
-
+ 
 # Serve the Dash app
 dash_app = create_dash_app(app)
 
@@ -37,24 +37,23 @@ def show_barchart():
 
 
 
-
+@app.route("/FAQ")
+def faq_page():
+    return render_template("FAQ.html")
 
 @app.route("/data")
 def data_page():
     return render_template("data.html")
 
 
-@app.route("/download")
-def download_file():
-    return redirect(
-        "https://freedomhouse.org/sites/default/files/2024-02/All_data_FIW_2013-2024.xlsx"
-    )
-
 
 @app.route("/dash")
 def render_dash():
     return redirect("/dash/")
 
+@app.route("/charts")
+def charts_page():
+    return render_template("charts.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
